@@ -17,6 +17,8 @@ ssh_password = "r00tme"
 template_name = "debian11"
 vm_name       = "debian11"
 vm_id         = 999
+memory        = 2048
+cores         = 2
 
 # ISO Objects
 iso_file = "debian-11.0.0-amd64-netinst.iso"

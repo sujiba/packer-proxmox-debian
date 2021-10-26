@@ -51,6 +51,14 @@ variable "vm_id" {
   type = number
 }
 
+variable "memory" {
+  type = number
+}
+
+variable "cores" {
+  type = number
+}
+
 variable "shell_scripts" {
   description = "A list of scripts."
   type        = list(string)
@@ -72,8 +80,8 @@ source "proxmox-iso" "debian" {
   vm_name       = "${var.vm_name}"
   vm_id         = var.vm_id
 
-  memory  = 2048
-  cores   = 2
+  memory  = var.memory
+  cores   = var.cores
   sockets = 1
   os      = "l26"
 

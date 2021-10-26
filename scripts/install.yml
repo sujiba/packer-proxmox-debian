@@ -1,0 +1,62 @@
+---
+- name: "install.yml"
+  hosts: localhost
+  gather_facts: yes
+  become: yes
+  tasks:
+  - name: Upgrade all packages
+    apt:
+      update_cache: yes
+      upgrade: dist
+  - name: Install packages
+    apt:
+      name: "{{ packages }}"
+      state: latest
+    vars:
+      packages:
+        - apt-transport-https
+        - bash-completion
+        - cloud-init
+        - curl
+        - gdisk
+        - git
+        - lsscsi
+        - net-tools
+        - nfs-common
+        - parted
+        - qemu-guest-agent
+        - rsync
+        - util-linux
+        - vim
+        - wget
+        - zip
+  - name: Create bash profile
+    copy:
+      dest: "/etc/profile.d/00-bash.sh"
+      content: |
+        ## custom bash changes
+        # colorful bash
+        force_color_prompt=yes
+        export LS_OPTIONS='--color=auto'
+        eval "`dircolors`"
+        # aliases
+        alias l='ls $LS_OPTIONS -la'
+        alias ll='ls $LS_OPTIONS -l'
+        alias vi='vim'
+        # search history with keys
+        bind '"\e[A": history-search-backward'
+        bind '"\e[B": history-search-forward'
+  - name: Create vim profile
+    copy:
+      dest: /etc/vim/vimrc.local
+      content: |
+        set nocompatible
+        set ignorecase
+        set hlsearch
+        set showmatch
+        set wrap
+        set mouse-=a
+        set autoindent
+        syntax on
+        highlight Comment ctermfg=LightCyan
+        let g:skip_defaults_vim = 1

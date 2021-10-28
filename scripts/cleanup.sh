@@ -44,7 +44,7 @@ ChallengeResponseAuthentication no
 UsePAM yes
 
 # Allow specific users only - only alice in this case
-AllowUsers sujiba
+AllowUsers $youruser
 
 # Sicherheit und Allgemeines
 LoginGraceTime 2m

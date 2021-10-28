@@ -28,6 +28,9 @@ Copy variables.pkrvars.hcl.template to variables.pkrvars.hcl and change the para
 cp variables.pkrvars.hcl.template variables.pkrvars.hcl
 vi variables.pkrvars.hcl
 ```
+## Add User to clean.up script
+- Replace YourUser with your own ssh user
+AllowUsers YourUser
 
 To start the build process use the following command:
 ```

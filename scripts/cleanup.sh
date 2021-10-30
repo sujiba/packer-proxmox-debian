@@ -43,8 +43,8 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 UsePAM yes
 
-# Allow specific users only - only alice in this case
-AllowUsers $youruser
+# Allow specific users only - only YOUR_USER in this case
+AllowUsers YOUR_USER
 
 # Sicherheit und Allgemeines
 LoginGraceTime 2m

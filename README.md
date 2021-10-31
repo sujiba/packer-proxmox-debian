@@ -3,6 +3,7 @@
 ### Overview
 - [Introduction](https://github.com/sujiba/packer-proxmox-debian#introduction)
 - [Prerequisites](https://github.com/sujiba/packer-proxmox-debian#prerequisites)
+- [Personalization](https://github.com/sujiba/packer-proxmox-debian#personalization)
 - [Build](https://github.com/sujiba/packer-proxmox-debian#build)
 - [Acknowledgement](https://github.com/sujiba/packer-proxmox-debian#acknowledgement)
 
@@ -22,22 +23,23 @@
 - Download the [Debian netinst CD image](https://www.debian.org/releases/bullseye/debian-installer/index)
 - Download the repository
 
-## Build
+## Personalization
 Copy variables.pkrvars.hcl.template to variables.pkrvars.hcl and change the parameters
 ```
 cp variables.pkrvars.hcl.template variables.pkrvars.hcl
 vi variables.pkrvars.hcl
 ```
-## Add User to cleanup.sh
-Search for YOUR_USER and replace it with your own ssh user
+Search for YOUR_USER in cleanup.sh and replace it with your own ssh user
 ```
 AllowUsers YOUR_USER
 ```
 
+## Build
 To start the build process use the following command:
 ```
 packer build -var-file=./variables.pkrvars.hcl debian.pkr.hcl
 ```
+
 ## Acknowledgement
 - [Packer](https://github.com/hashicorp/packer)
 - [Proxmox](https://www.proxmox.com/en/proxmox-ve)
